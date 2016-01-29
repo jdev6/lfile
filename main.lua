@@ -200,9 +200,9 @@ function love.wheelmoved(x, y) --Scrolling
 end
 
 function love.resize(w,h) --Update when resized
-    update()
     width = love.graphics.getWidth()
     height = love.graphics.getHeight()
+    update()
 end
 
 function love.quit()
