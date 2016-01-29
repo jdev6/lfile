@@ -131,27 +131,23 @@ function love.draw()
 end
 
 function love.keypressed(k)
-    if k == "escape" then --When escapeis pressed,
-        if typing then
-            typing = false
-            typingText = ""
-        end
+    if k == "escape" and not typing then --When escape is pressed,
         if currentdir ~= "/" then --go to parent dir
             currentdir = getParentDir(currentdir)
             update()
         end
         camera:setY(0) --Reset camera
     
-    elseif k == "h" then
+    elseif k == "h" and not typing then
         help = not help --toggle help
 
-    elseif k == "r" then
+    elseif k == "r" and not typing then
         print("Resetting")
         options = {showhiddenfiles = false}
         update()
         love.filesystem.write("options.txt", "")
 
-    elseif k == "." then --Toggle hidden files ('.*')
+    elseif k == "." and not typing then --Toggle hidden files ('.*')
         print("Toggling hidden files")
         options.showhiddenfiles = not options.showhiddenfiles
         options.showhiddenfiles = options.showhiddenfiles
@@ -163,6 +159,9 @@ function love.keypressed(k)
         elseif k == "return" then
             typing = false
             doneTyping = true
+        elseif k == "escape" then
+            typing = false
+            typingText = ""
         end
     end
 end

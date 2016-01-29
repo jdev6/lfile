@@ -28,7 +28,7 @@ function getExtension (name)
     return name:match("^.+(%..+)$")
 end
 
-textExtensions = {'.lua', '.txt', '.py', '.cpp', '.rs', '.c', '.rb', '.ini', '.sh', '.xml', '.toml'}
+textExtensions = {'.lua', '.txt', '.py', '.cpp', '.rs', '.c', '.rb', '.ini', '.sh', '.xml', '.toml', '.md', '.html', '.js'}
 for k,v in pairs(textExtensions) do
     textExtensions[v] = true
 end
